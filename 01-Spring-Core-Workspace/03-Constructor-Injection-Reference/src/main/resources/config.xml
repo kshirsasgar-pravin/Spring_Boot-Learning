@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <bean id = "addr" class = "com.tca.Address">
+               <constructor-arg name = "city" value = "sangvi"/>
+               <constructor-arg name = "pincode " value = "411027"/>  
+        </bean>
+        
+        <bean id = "customer" class ="com.tca.Customer">
+            <constructor-arg name = "customerId" value = "101"/>
+            <constructor-arg name ="customerName" value = "Sachin Dhane"/>
+            <constructor-arg name = "address" ref = "address"/>
+        </bean>
+</beans>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+     
+     
+      
+      <bean id = "serviceA" class = "com.tca.entities.ServiceA" autowire = "byName ">
+           
+      </bean>
+  
+       <bean id = "serviceB" class = "com.tca.entities.ServiceB" >
+         
+      </bean>
+      
+       <bean id = "serviceB2" class = "com.tca.entities.ServiceB" primary="true">
+         
+      </bean>
+      
+      <bean id = "serviceB3" class = "com.tca.entities.ServiceB">
+         
+      </bean>
+      
+     
+      
+      <bean id = "serviceC" class = "com.tca.entities.ServiceC">
+         
+      </bean>
+      
+     
+</beans>

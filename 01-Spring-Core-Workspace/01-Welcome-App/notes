@@ -1,0 +1,110 @@
+===========================
+First Spring Application
+===========================
+
+Install IDE
+--> spring.io
+
+
+You must have to create 3 files -
+	0. Add dependency in pom.xml
+	1. Spring Bean (.java)           
+	2. Cofiguration file (config.xml) : <bean> tags
+	3. main file   (App.java) : which has main method
+
+
+0. Add dependency in pom.xml
+--------------------------------
+	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-context</artifactId>
+         <version>7.0.5</version>
+    </dependency>
+
+1. Spring Bean (.java) 
+------------------------
+package com.tca.bean;
+
+public class WelcomeBean 
+{
+	public String getMessage()
+	{
+		return "Welcome to Techno Comp Academy";
+	}
+}
+
+2. Cofiguration file (config.xml) : <bean> tags
+-----------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    
+	<bean id="wc" class="com.tca.bean.WelcomeBean">
+	
+	</bean>
+	
+	
+</beans>
+
+
+3. main file   (App.java) : which has main method
+---------------------------------------------------
+package com.tca;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.tca.bean.WelcomeBean;
+
+public class App 
+{
+    public static void main(String[] args) 
+    {
+    	//Step 1 : Creating and Starting Container
+       ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+       
+       // Step 2: Get the object of Bean 
+       
+       Object obj =  context.getBean(WelcomeBean.class);
+       WelcomeBean wb = (WelcomeBean) obj;
+              
+       // Step 3 : Call bean method / Bussiness Logic
+       String msg = wb.getMessage();
+       
+       System.out.println(msg);
+    }
+}
+
+
+Three Steps to call bean methods
+-----------------------------------
+Step 1 : Creating and Starting Container
+Step 2: Get the object of Bean 
+Step 3 : Call bean method / Bussiness Logic
+
+
+What is a Spring Bean Class?
+------------------------------------ 
+--> Any Java class whose object lifecycle is managed by the Spring Container is called a Spring Bean class.  
+--> For the first example, we write a simple independent class (no dependencies on other classes).
+Example: WelcomeBean
+
+Spring Configuration XML 
+----------------------------
+--> The Spring Configuration XML file is where you register your classes with the Spring Container. --> Spring reads this file on startup, identifies the <bean> tags, and creates objects for each registered class. 
+
+
+What getBean() Does
+-------------------
+--> getBean() is a method provided by both BeanFactory and ApplicationContext interfaces.  
+--> It retrieves the Spring-managed object (bean) by its registered ID from the container.
+
+Note: 
+-----
+--> If bean is not found or If the IDs don't match, Spring throws a NoSuchBeanDefinitionException. 
+--> In ApplicationContext, beans are created at the time container starts.(Early Loading)
+    In BeanFactory, bean are created on a call of getBean() method [Lazy Loading] 
