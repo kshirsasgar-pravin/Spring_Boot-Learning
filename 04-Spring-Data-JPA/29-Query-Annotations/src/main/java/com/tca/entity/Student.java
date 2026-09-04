@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Data
 public class Student {
       @Id
-      private Integer StudentId;
+      private Integer studentId;
 
       @Column(name="NAME")
       private String name;
