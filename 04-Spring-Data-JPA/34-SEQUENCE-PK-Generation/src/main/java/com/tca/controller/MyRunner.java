@@ -19,8 +19,7 @@ public class MyRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Student student = new Student();
-
-        student.setName("xxxxx");
+        student.setName("zzz");
         student.setPer(79D);
         student.setGender(Gender.MALE);
         student.setBirthDate(LocalDate.of(2004,8,21));
