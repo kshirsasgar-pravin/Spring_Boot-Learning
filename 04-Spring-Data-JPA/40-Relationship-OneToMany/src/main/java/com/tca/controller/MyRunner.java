@@ -35,12 +35,12 @@ public class MyRunner implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
           Customer customer = new Customer();
-          customer.setName("BBB");
+          customer.setName("AAA");
           customer.setPhone(1234567890);
-//        customer.setOrders(Arrays.asList(new Order(1L, LocalDate.now(), OrderStatus.INITIATED),
-//                                         new Order(2L, LocalDate.now(), OrderStatus.DELIVERED)
-//                                        )
-//                            );
+          customer.setOrders(Arrays.asList(new Order(1L, LocalDate.now(), OrderStatus.INITIATED),
+                                         new Order(2L, LocalDate.now(), OrderStatus.DELIVERED)
+                                        )
+                            );
 
         //        Order order = new Order(1L, LocalDate.now(), OrderStatus.INITIATED);
 //        Order order1 = new Order(1L, LocalDate.now(), OrderStatus.DELIVERED);
@@ -50,9 +50,9 @@ public class MyRunner implements ApplicationRunner {
 //        order = orderService.saveOrder(order);
 //        System.out.println(order);
 //
-//       customer = customerService.saveCustomer(customer);
-//        System.out.println("Customer sved successfully ");
-//        System.out.println(customer);
+        customer = customerService.saveCustomer(customer);
+        System.out.println("Customer sved successfully ");
+        System.out.println(customer);
 
 //
 //        customer = customerService.findById(2L);
@@ -73,11 +73,11 @@ public class MyRunner implements ApplicationRunner {
 
 //        customerService.deleteCustomerById(2L);
 
-
-        Order order  = orderService.fetchOrderById(1L);
-        System.out.println(order);
-
-         order.setOrderStatus(OrderStatus.REFUNDED );
+//
+//        Order order  = orderService.fetchOrderById(1L);
+//        System.out.println(order);
+//
+//         order.setOrderStatus(OrderStatus.REFUNDED );
 
 
 
