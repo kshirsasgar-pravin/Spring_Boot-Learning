@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns:th = "http:///www.thymeleaf.org">
+<body>
+
+    <form th:object = "${user}" method ="POST" th:action = "@{/register}">
+
+        User name : <input type = "text " th:field = "*{username}"/>
+                    <span   style="color: red",
+                            th:if="",
+
+        Email Id : <input type = "text" th:field ="*{email}"/>
+
+        Mobile : <input type = "text " th:field = "*{email}"/>
+
+
+
+    </form>
+
+
+
+</body>
+</html>

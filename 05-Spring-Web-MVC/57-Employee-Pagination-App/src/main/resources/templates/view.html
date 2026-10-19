@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<table border="1">
+
+    <tr>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Salary</th>
+        <th>Department No</th>
+    </tr>
+
+    <tr th:each="emp : ${employees}">
+
+        <td th:text="${emp.empId}"></td>
+        <td th:text="${emp.name}"> </td>
+        <td th:text="${emp.salary}"></td>
+        <td th:text="${emp.deptNo}"></td>
+
+    </tr>
+
+
+
+</table>
+
+<div>
+
+    <span th:if ="${hasPrevious}">
+        <a th:href="@{/view(pageNumber = ${currentPage-1})}">Previous</a>
+    </span >
+
+    <span th:if = "${hasNext}">
+
+      <a th:href = "@{/view(pageNumber = ${currentPage+1})}">Next</a>
+    </span>
+
+</div>
+
+</body>
+
+
+</html>
